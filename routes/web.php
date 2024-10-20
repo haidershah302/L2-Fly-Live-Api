@@ -22,7 +22,7 @@ Route::get('/auth/google/redirect', function (Request $request) {
 
 
 route::get('/auth/google/callback', function (Request $request) {
-    dd(Socialite::driver('google')->user());
+    dd(Socialite::driver('google')->user(), 'this is fresh push');
 });
 
 require __DIR__.'/auth.php';
