@@ -1,11 +1,17 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
-    return redirect('/auth/google/redirect');
+
+    $data = User::all();
+
+    dd($data);
+
+//    return redirect('/auth/google/redirect');
 });
 
 
@@ -18,6 +24,5 @@ Route::get('/auth/google/redirect', function (Request $request) {
 route::get('/auth/google/callback', function (Request $request) {
     dd(Socialite::driver('google')->user());
 });
-
 
 require __DIR__.'/auth.php';
